@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ScheduleController@index');
+Route::get('/team/select/{team_id}', 'ScheduleController@select');
+Route::get('/team', 'ScheduleController@team');
