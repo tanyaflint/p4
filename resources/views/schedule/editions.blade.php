@@ -9,11 +9,17 @@
 
 @section('content')
     <div>
+        <div class="row">
+            <div class="col-md-2 offset-10">
+                <i class="far fa-edit"></i> Edit Team
+            </div>
+        </div>
         <h2>Create activities</h2>
         <p>Hi there! Create activities that you want to schedule</p>
 
 
         <form>
+
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label for="activityNameInput">Activity name:</label>
@@ -33,7 +39,7 @@
             </div>
             <div class="row">
                 <div class='col-sm-3 offset-sm-5'>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary"> + Add</button>
                 </div>
             </div>
         </form>
