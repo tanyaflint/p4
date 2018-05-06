@@ -11,15 +11,12 @@
     <div>
         <div class="row">
             <div class="col-md-2 offset-10">
-                <i class="far fa-edit"></i> Edit Team
+                <a href='/team'> <i class="far fa-edit"></i> Edit Team </a>
             </div>
         </div>
         <h2>Create activities</h2>
         <p>Hi there! Create activities that you want to schedule</p>
-
-
         <form>
-
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label for="activityNameInput">Activity name:</label>
