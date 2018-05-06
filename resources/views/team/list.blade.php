@@ -9,11 +9,16 @@
 
 @section('content')
     <div>
-        <h2>Add teammates</h2>
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <a href='/'> <i class="fas fa-long-arrow-alt-left"></i> Back to activities </a>
+            </div>
+        </div>
+        <h2>Edit team</h2>
         <p>These are the people who will receive your invites. Click to edit info.</p>
 
         <div class="card-header">
-            Your team
+            {{(count($team) == 0) ? "Oops, no one's here." : 'Your team'}}
         </div>
         <div class="card" style="width: 100%;">
             <ul class="list-group list-group-flush">

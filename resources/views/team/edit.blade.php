@@ -10,12 +10,12 @@
 
 @section('content')
     <div>
-        <h2>Edit</h2>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-md-2">
                 <a href='/team'> <i class="fas fa-long-arrow-alt-left"></i> Back to team </a>
             </div>
         </div>
+        <h2>Edit</h2>
     </div>
     <form method='POST' action='/team/{{$newTeammate->id}}'>
         {{ method_field('put') }}
@@ -26,9 +26,8 @@
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>
             <div class='col-sm-2'>
-                <a href='/team/{{$newTeammate->id}}/delete'>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</button>
-                </a>
+                <a href='/team/{{$newTeammate->id}}/delete'
+                   class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
             </div>
         </div>
     </form>

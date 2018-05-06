@@ -18,8 +18,8 @@ class CreateActivitiesTable extends Migration
             $table->timestamps();
 
             $table->string('name');
-            $table->date('date_from');
-            $table->date('date_to');
+            $table->dateTime('date_from');
+            $table->dateTime('date_to');
         });
     }
 

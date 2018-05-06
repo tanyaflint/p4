@@ -11,17 +11,24 @@
 |
 */
 
-Route::get('/', 'ScheduleController@index');
+# READ
+# Show the form to add a new activity
+Route::get('/', 'ActivityController@index');
+
+#CREATE
+# Process the form to add a new activity
+Route::post('/activity/create', 'ActivityController@create');
 
 
 /**
  * Teammate
  */
 
-# READ & CREATE
+# READ
 # Show the form to add a new teammate
 Route::get('/team', 'TeamController@team');
 
+# CREATE
 # Process the form to add a new teammate
 Route::post('/team/create', 'TeamController@create');
 

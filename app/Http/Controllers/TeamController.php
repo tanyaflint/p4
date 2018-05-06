@@ -16,12 +16,12 @@ class TeamController extends Controller
         $team = Teammate::all();
         return view('team.list')->with([
             'team' => $team,
-            'newTeammate' => new Teammate(),
+            'newTeammate' => new Teammate()
         ]);
     }
 
     /**
-     * Show the form to edit an existing book
+     * Show the form to edit an existing teammate
      * GET /team/{team_id}/edit/
      */
     public function edit($id)
@@ -49,7 +49,7 @@ class TeamController extends Controller
         $team->email = $request->email;
         $team->save();
 
-        return redirect('/team');
+        return redirect('/team')->with('alert', 'Teammate was created');
     }
 
     /**

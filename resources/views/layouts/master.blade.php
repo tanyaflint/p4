@@ -10,6 +10,9 @@
     @stack('head')
 </head>
 <body>
+@if(session('alert'))
+    <div class='customAlert alert alert-info'> {{ session('alert') }} </div>
+@endif
 <div class='container'>
     <header class='mt-5'>
 
