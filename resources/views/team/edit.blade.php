@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <form method='POST' action='/team/{{$teammate->id}}'>
+    <form method='POST' action='/team/{{$newTeammate->id}}'>
         {{ method_field('put') }}
         {{ csrf_field() }}
         @include('team.teamFormInputs')
@@ -26,12 +26,11 @@
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>
             <div class='col-sm-2'>
-                <a href ='/team/{{$teammate->id}}/delete'>
-                <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</button>
+                <a href='/team/{{$newTeammate->id}}/delete'>
+                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</button>
                 </a>
             </div>
         </div>
     </form>
-
     @include('modules.error-form')
 @endsection

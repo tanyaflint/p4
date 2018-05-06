@@ -16,7 +16,7 @@ class TeamController extends Controller
         $team = Teammate::all();
         return view('team.list')->with([
             'team' => $team,
-            'teammate' => new Teammate(),
+            'newTeammate' => new Teammate(),
         ]);
     }
 
@@ -29,7 +29,7 @@ class TeamController extends Controller
         $teammate = Teammate::find($id);
 
         return view('team.edit')->with([
-            'teammate' => $teammate
+            'newTeammate' => $teammate
         ]);
     }
 

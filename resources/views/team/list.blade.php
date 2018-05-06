@@ -22,11 +22,11 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <a href="team/{{$teammate->id}}/edit">
-                                    <label for="activityNameInput">{{$teammate->name}}</label>
+                                    {{$teammate->name}}
                                 </a>
                             </div>
                             <div class="col-sm-6">
-                                <label for="startOnInput">{{$teammate->email}}</label>
+                                {{$teammate->email}}
                             </div>
                         </div>
                     </li>

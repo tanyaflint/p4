@@ -5,13 +5,17 @@
                id="Name"
                name='name'
                aria-describedby="nameHelp"
-               value='{{ old('name', $teammate->name) }}'
+               value='{{ old('name', $newTeammate->name) }}'
                placeholder="Enter first and last name">
         @include('modules.error-field', ['field' => 'name'])
     </div>
     <div class="form-group col-sm-6">
         <label for="Email">Email:</label>
-        <input class="form-control" id="Email" name='email' placeholder="Enter email" value='{{ old('email', $teammate->email) }}' >
+        <input class="form-control"
+               id="Email"
+               name='email'
+               placeholder="Enter email"
+               value='{{ old('email', $newTeammate->email) }}'>
         @include('modules.error-field', ['field' => 'email'])
     </div>
 </div>
