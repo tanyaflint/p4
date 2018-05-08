@@ -37,7 +37,7 @@
                         <input class="form-control"
                                name='start'
                                id="startOnInput"
-                               placeholder='04/1/2018 11:00'
+                               placeholder='04/01/2018 11:00'
                                value='{{ old('start', $newActivity->date_from) }}'>
                     </div>
                     @include('modules.error-field', ['field' => 'start'])
@@ -53,7 +53,7 @@
                         <input class="form-control"
                                name='end'
                                id="endOnInput"
-                               placeholder='04/2/2018 17:00'
+                               placeholder='04/02/2018 17:00'
                                value='{{ old('end', $newActivity->date_to) }}'>
                     </div>
                     @include('modules.error-field', ['field' => 'end'])
@@ -92,7 +92,7 @@
             </ul>
         </div>
 
-        <form>
+        <form method='GET' action='/team/test'>
             <div class="row mt-5">
                 <div class='col-sm-3 offset-sm-5'>
                     <button type="submit" class="btn btn-primary">Send now</button>

@@ -14,8 +14,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activity = Activity::where('created_at', '>=', \Carbon\Carbon::today())->get();
-        return view('schedule.editions')->with([
+        $activity = Activity::getCurrentActivities();
+        return view('schedule.activity')->with([
             'activity' => $activity,
             'newActivity' => new Activity()
         ]);
@@ -56,9 +56,10 @@ class ActivityController extends Controller
         return redirect('/')->with('alert', 'Activity was created');
     }
 
+    //TODO Finsh time select & calendar sends
     public function select()
     {
-        return view('schedule.single_edition');
+        return view('schedule.activity_select');
     }
 
     public static function createEvent()

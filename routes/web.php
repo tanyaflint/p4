@@ -46,4 +46,7 @@ Route::get('/team/{id}/delete', 'TeamController@delete');
 # Process the deletion of a teammate
 Route::delete('/team/{id}', 'TeamController@destroy');
 
+#Unfinished email sends, creating a route for info diplay
+Route::get('/team/test/', 'EmailController@index');
+
 
