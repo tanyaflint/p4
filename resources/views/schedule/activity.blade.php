@@ -72,7 +72,7 @@
         <div class="card-header">
             {{(count($activity) == 0) ? 'No activities today...' : 'Activities created today'}}
         </div>
-        <div class="card" class='full-width'>
+        <div class="card full-width">
             <ul class="list-group list-group-flush">
                 @foreach($activity as $single)
                     <li class="list-group-item">

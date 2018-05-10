@@ -20,7 +20,7 @@
         <div class="card-header">
             {{(count($team) == 0) ? "Oops, no one's here." : 'Your team'}}
         </div>
-        <div class="card" class='full-width'>
+        <div class="card full-width">
             <ul class="list-group list-group-flush">
                 @foreach($team as $teammate)
                     <li class="list-group-item">
