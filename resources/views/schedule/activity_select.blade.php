@@ -14,7 +14,7 @@
         <div class='row'>
 
             @foreach($activities as $activity)
-                <div class='col-lg-3'>
+                <div class='col-lg-4'>
                 <h2>{{$activity->name}}</h2>
                 @foreach($activityNames[$activity->name] as $time)
                     <a href='#calendar-invite'><div>{{$time}}</div></a>
