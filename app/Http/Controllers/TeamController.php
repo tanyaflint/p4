@@ -14,6 +14,7 @@ class TeamController extends Controller
     public function team()
     {
         $team = Teammate::all();
+
         return view('team.list')->with([
             'team' => $team,
             'newTeammate' => new Teammate()
@@ -87,6 +88,7 @@ class TeamController extends Controller
         if (!$team) {
             return redirect('/team')->with('alert', 'Teammate not found');
         }
+
         return view('team.delete')->with([
             'team' => $team,
         ]);
@@ -102,6 +104,7 @@ class TeamController extends Controller
         # Before we delete the book we have to delete any tag associations
         $team->activities()->detach();
         $team->delete();
+
         return redirect('/team')->with([
             'alert' => '“' . $team->name . '” was removed.'
         ]);

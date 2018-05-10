@@ -11,6 +11,7 @@ class EmailController extends Controller
     public function index()
     {
         $team = Activity::getTeamWithCurrentActivities();
+
         return view('schedule.temp_email_display')->with([
             'team' => $team
         ]);

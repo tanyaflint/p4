@@ -70,7 +70,7 @@
         <h2 class='mt-5'>These activities are good to go</h2>
         <p>Are you ready to send calendar invites?</p>
         <div class="card-header">
-             {{(count($activity) == 0) ? 'No activities today...' : 'Activities created today'}}
+            {{(count($activity) == 0) ? 'No activities today...' : 'Activities created today'}}
         </div>
         <div class="card" class='full-width'>
             <ul class="list-group list-group-flush">

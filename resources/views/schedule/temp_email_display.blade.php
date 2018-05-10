@@ -9,14 +9,14 @@
     <p>We're still workin on this, after clicking "Send Now" following emails will be sent:</p>
 
     @foreach($team as $teammate)
-            <pre><code>
+        <pre><code>
             To: {{$teammate->email}}
 
-                Hi {{$teammate->name}},
+            Hi {{$teammate->name}},
 
                 Click the link to schedule your activities.
                 <a href='{{config('app.url')}}/schedule-activities/teammate/{{$teammate->id}}'>{{config('app.url')}}/schedule-activities/teammate/{{$teammate->id}}</a>
                 Thanks.
             </code></pre>
-        @endforeach
+    @endforeach
 @endsection

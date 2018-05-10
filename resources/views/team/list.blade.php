@@ -43,7 +43,7 @@
             @include('team.teamFormInputs')
             <div class="row">
                 <div class='col-sm-3 offset-sm-5 mb-4'>
-                    <button type="submit" class="btn btn-primary"> + Add Member</button>
+                    <button type="submit" class="btn btn-primary"> + Add</button>
                 </div>
             </div>
         </form>

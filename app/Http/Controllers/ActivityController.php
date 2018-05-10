@@ -15,6 +15,7 @@ class ActivityController extends Controller
     public function index()
     {
         $activity = Activity::getCurrentActivities();
+
         return view('schedule.activity')->with([
             'activity' => $activity,
             'newActivity' => new Activity()
@@ -60,23 +61,21 @@ class ActivityController extends Controller
     {
         $activities = Activity::getCurrentActivities();
 
-        $times = array();
-        $activityNames = array();
+        $times = [];
+        $activityNames = [];
 
-        foreach ($activities as $thisActivity)
-        {
-            for ($i = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_from); $i < \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_to); $i = $i->addHour())
-            {
-                if ($i->hour == 17)
-                {
+        foreach ($activities as $thisActivity) {
+            for ($i = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_from); $i < \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_to); $i = $i->addHour()) {
+                if ($i->hour == 17) {
                     #Skip non business hours
                     $i->addHours(16);
                 }
                 array_push($times, $i->toDayDateTimeString());
             }
             $activityNames[$thisActivity->name] = $times;
-            $times =array();
+            $times = [];
         }
+
         return view('schedule.activity_select')->with([
             'activities' => $activities,
             'times' => $times,
