@@ -75,6 +75,7 @@ class ActivityController extends Controller
                 array_push($times, $i->toDayDateTimeString());
             }
             $activityNames[$thisActivity->name] = $times;
+            $times =array();
         }
         return view('schedule.activity_select')->with([
             'activities' => $activities,

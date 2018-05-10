@@ -32,7 +32,7 @@ class Activity extends Model
 
     public static function getTeamWithCurrentActivities()
     {
-        //Get all teammates who have linked activities and the activity create date is today
+        //Get all teammates who have linked activities and the activity created date is today
         $team = Teammate::whereHas('activities', function ($query) {
             $query->where('activities.created_at', '>=', \Carbon\Carbon::today());
         })->get();
