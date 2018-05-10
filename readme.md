@@ -32,7 +32,7 @@ __Update__
   + Observe confirmation message
   
 __Delete__
-  + Visit <http://p4.foobooks.me/team>; click name of a teammate you want to delete
+  + Visit <http://p4.idreamcode.me/team>; click name of a teammate you want to delete
   + Click "Delete" button
   + Confirm deletion
   + Observe confirmation message
