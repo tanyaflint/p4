@@ -13,28 +13,29 @@ class Activity extends Model
         return $this->belongsToMany('App\Teammate')->withTimestamps();
     }
 
-    ## Helper methods for listing current activities (today's activities) wanted to keep them in one place in case current activity logic changes 'created_at', '>=', \Carbon\Carbon::today()
+    ##
+    ## Helper methods for listing current activities (today's activities)
+    ## Keeping them in one place in case current activity logic changes 'created_at', '>=', \Carbon\Carbon::today()
+    ##
 
     public static function getCurrentActivities()
     {
         $activity = Activity::where('created_at', '>=', \Carbon\Carbon::today())->get();
+
+        foreach($activity as $thisActivity) {
+            # Create a "display friendly" version of the date_from and date_to date to be used in the view
+            $thisActivity->date_from_display = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_from)->format('l, m/d/Y H:i');
+            $thisActivity->date_to_display = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_to)->format('l, m/d/Y H:i');
+        }
         return $activity;
     }
 
     public static function getTeamWithCurrentActivities()
     {
         //Get all teammates who have linked activities and the activity create date is today
-        //TODO: is this correct?
         $team = Teammate::whereHas('activities', function ($query) {
             $query->where('activities.created_at', '>=', \Carbon\Carbon::today());
         })->get();
         return $team;
-    }
-
-    //TODO: Not used, do I need to remove this
-    public static function getCurrentActivitiesWithTeam()
-    {
-        $activity = Activity::with('teammates')->where('created_at', '>=', \Carbon\Carbon::today())->get();
-        return $activity;
     }
 }

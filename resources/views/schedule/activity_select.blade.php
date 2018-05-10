@@ -10,8 +10,18 @@
 @section('content')
     <div>
         <h2>Pick a time</h2>
-        <p>This where you can select times</p>
+        <p>We're still working on sending the calendar invites... Select a time and a calendar invite will be sent</p>
+        <div class='row'>
 
+            @foreach($activities as $activity)
+                <div class='col-lg-3'>
+                <h2>{{$activity->name}}</h2>
+                @foreach($activityNames[$activity->name] as $time)
+                    <a href='#calendar-invite'><div>{{$time}}</div></a>
+                @endforeach
+                </div>
+            @endforeach
 
+        </div>
     </div>
 @endsection

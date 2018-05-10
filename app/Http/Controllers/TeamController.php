@@ -28,6 +28,10 @@ class TeamController extends Controller
     {
         $teammate = Teammate::find($id);
 
+        if (!$teammate) {
+            return redirect('/team')->with('alert', 'Teammate not found');
+        }
+
         return view('team.edit')->with([
             'newTeammate' => $teammate
         ]);

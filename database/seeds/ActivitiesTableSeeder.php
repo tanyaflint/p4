@@ -14,23 +14,20 @@ class ActivitiesTableSeeder extends Seeder
     {
 
         $activities = [
-            ['People & Events QA', \Carbon\Carbon::createFromDate(2018,04,26), \Carbon\Carbon::createFromDate(2018,04,27)],
-            ['Article QA', \Carbon\Carbon::createFromDate(2018,04,29), \Carbon\Carbon::createFromDate(2018,04,30)]
+            ['People & Events QA', \Carbon\Carbon::now(), \Carbon\Carbon::now()->addDays(1)],
+            ['Article QA', \Carbon\Carbon::now()->addDays(7), \Carbon\Carbon::now()->addDays(8)]
         ];
-
-        $count = count($activities);
 
         foreach ($activities as $key => $activityData) {
             $activity = new Activity();
 
-            $activity->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
-            $activity->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
+            $activity->created_at = Carbon\Carbon::now();
+            $activity->updated_at = Carbon\Carbon::now();
             $activity->name = $activityData[0];
             $activity->date_from = $activityData[1];
             $activity->date_to = $activityData[2];
 
             $activity->save();
-            $count--;
         }
     }
 }

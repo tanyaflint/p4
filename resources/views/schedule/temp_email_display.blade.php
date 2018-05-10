@@ -15,8 +15,7 @@
                 Hi {{$teammate->name}},
 
                 Click the link to schedule your activities.
-                {{config('app.url')}}/activity/book/teammate/{{$teammate->id}}
-
+                <a href='{{config('app.url')}}/schedule-activities/teammate/{{$teammate->id}}'>{{config('app.url')}}/schedule-activities/teammate/{{$teammate->id}}</a>
                 Thanks.
             </code></pre>
         @endforeach

@@ -49,19 +49,41 @@ class ActivityController extends Controller
 
         $team = Teammate::all();
         foreach ($team as $teammate) {
-            //TODO:use attach if many to many relationship
             $activity->teammates()->attach($teammate->id);
         }
 
         return redirect('/')->with('alert', 'Activity was created');
     }
 
-    //TODO Finsh time select & calendar sends
+    //TODO Finsh calendar sends
     public function select()
     {
-        return view('schedule.activity_select');
+        $activities = Activity::getCurrentActivities();
+
+        $times = array();
+        $activityNames = array();
+
+        foreach ($activities as $thisActivity)
+        {
+            for ($i = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_from); $i < \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thisActivity->date_to); $i = $i->addHour())
+            {
+                if ($i->hour == 17)
+                {
+                    #Skip non business hours
+                    $i->addHours(16);
+                }
+                array_push($times, $i->toDayDateTimeString());
+            }
+            $activityNames[$thisActivity->name] = $times;
+        }
+        return view('schedule.activity_select')->with([
+            'activities' => $activities,
+            'times' => $times,
+            'activityNames' => $activityNames
+        ]);
     }
 
+    #Calendar send package
     public static function createEvent()
     {
         $vCalendar = new \Eluceo\iCal\Component\Calendar('www.p4.idreamcode.me');

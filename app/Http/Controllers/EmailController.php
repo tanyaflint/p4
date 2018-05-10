@@ -15,4 +15,5 @@ class EmailController extends Controller
             'team' => $team
         ]);
     }
+
 }

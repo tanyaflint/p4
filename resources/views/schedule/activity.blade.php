@@ -72,7 +72,7 @@
         <div class="card-header">
              {{(count($activity) == 0) ? 'No activities today...' : 'Activities created today'}}
         </div>
-        <div class="card" style="width: 100%;">
+        <div class="card" class='full-width'>
             <ul class="list-group list-group-flush">
                 @foreach($activity as $single)
                     <li class="list-group-item">
@@ -81,10 +81,7 @@
                                 <strong>{{$single->name}}</strong>
                             </div>
                             <div class='col-sm-6'>
-                                From {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $single->date_from)->format('l'). ', ' .
-                                \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $single->date_from)->format('m/d/Y H:i')}}
-                                to {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $single->date_to)->format('l') . ', ' .
-                                \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $single->date_to)->format('m/d/Y H:i')}}
+                                From {{$single->date_from_display}} to {{$single->date_to_display}}
                             </div>
                         </div>
                     </li>

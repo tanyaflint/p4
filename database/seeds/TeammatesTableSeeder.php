@@ -19,18 +19,15 @@ class TeammatesTableSeeder extends Seeder
             ['J.K. Rowling', 'jrowling@email.com']
         ];
 
-        $count = count($teammates);
-
         foreach ($teammates as $key => $teammateData) {
             $teammate = new Teammate();
 
-            $teammate->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
-            $teammate->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
+            $teammate->created_at = Carbon\Carbon::now();
+            $teammate->updated_at = Carbon\Carbon::now();
             $teammate->name = $teammateData[0];
             $teammate->email = $teammateData[1];
 
             $teammate->save();
-            $count--;
         }
     }
 }

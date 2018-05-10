@@ -46,7 +46,8 @@ Route::get('/team/{id}/delete', 'TeamController@delete');
 # Process the deletion of a teammate
 Route::delete('/team/{id}', 'TeamController@destroy');
 
-#Unfinished email sends, creating a route for info diplay
+# Unfinished email sends, creating a route for displaying emails
 Route::get('/team/test/', 'EmailController@index');
 
-
+# Select
+Route::get('/schedule-activities/teammate/{id}', 'ActivityController@select');
